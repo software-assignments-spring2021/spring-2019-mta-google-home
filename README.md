@@ -25,7 +25,7 @@ For information about how to contribute to this project: [CONTRIBUTING.md](https
 ## Authors
 
 - Luis Olivar - [Luistics](https://github.com/Luistics)
--
+- Vivian Fang - [vivfang](https://github.com/vivfang)
 -
 -
 -
