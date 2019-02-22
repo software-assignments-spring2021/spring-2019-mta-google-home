@@ -7,11 +7,14 @@
   "author": "Luis Olivar <lao294@nyu.edu>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^5.14.1",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
@@ -20,7 +23,7 @@
     "rimraf": "^2.6.3"
   },
   "scripts": {
-    "start": "yarn build && node dist/src/app.js",
+    "start": "nodemon ./src/app.js --exec babel-node -e js",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
   }
 }
