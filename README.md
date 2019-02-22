@@ -16,11 +16,11 @@ A Google Home action that allows for real-time information about current MTA ser
 
 ## Project Requirements
 
-To view this project's requirements: [REQUIREMENTS.md](https://github.com/nyu-software-engineering/mta-google-home/blob/master/REQUIREMENTS.md)
+To view this project's requirements: [REQUIREMENTS.md](https://github.com/nyu-software-engineering/mta-google-home/blob/master/public/REQUIREMENTS.md)
 
 ## Contributing
 
-For information about how to contribute to this project: [CONTRIBUTING.md](https://github.com/nyu-software-engineering/mta-google-home/blob/master/CONTRIBUTING.md)
+For information about how to contribute to this project: [CONTRIBUTING.md](https://github.com/nyu-software-engineering/mta-google-home/blob/master/public/CONTRIBUTING.md)
 
 ## Authors
 

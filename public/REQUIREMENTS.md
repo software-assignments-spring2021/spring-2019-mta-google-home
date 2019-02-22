@@ -6,11 +6,11 @@
 
 ## Domain Model
 
-![alt text](https://github.com/nyu-software-engineering/mta-google-home/blob/master/mta4gh_domain_model.jpg "domain model")
+![alt text](https://github.com/nyu-software-engineering/mta-google-home/blob/master/public/images/mta4gh_domain_model.jpg "domain model")
 
 ## Use Cases
 
-![alt text](https://github.com/nyu-software-engineering/mta-google-home/blob/master/mta4gh_use_cases.png "use case diagram")
+![alt text](https://github.com/nyu-software-engineering/mta-google-home/blob/master/public/images/mta4gh_use_cases.png "use case diagram")
 
 ### User Asks about train times
 
@@ -26,10 +26,8 @@ User asks Google a question about train times but does not include all relevant 
 
 ## Interviews & Observations
 
-
-
-
 ### End-User Observations
+
 <p>
 Lauren Lennox lives and works in New York City.She either moved to New York in her early twenties or has lived there her entire life. She is comfortable with technology, meaning that upon arrival at her parent's house, she is asked to help out with the wifi or other menial domestic IT issues.
  Last Christmas, Her parents saw a commercial for the google home and thought it would a nice gift for their helpful daughter. 
