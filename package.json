@@ -10,13 +10,17 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "eslint": "^5.14.1",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3"
   },
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "yarn build && node dist/src/app.js",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
   }
 }
