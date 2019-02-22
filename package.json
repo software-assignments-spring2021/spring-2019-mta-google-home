@@ -1,0 +1,22 @@
+{
+  "name": "mta-google-home",
+  "version": "1.0.0",
+  "description": "A Google Home action that responds with information about current MTA service.",
+  "main": "app.js",
+  "repository": "https://github.com/Luistics/mta-google-home.git",
+  "author": "Luis Olivar <lao294@nyu.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.16.4"
+  },
+  "scripts": {
+    "start": "node ./src/app.js"
+  }
+}
