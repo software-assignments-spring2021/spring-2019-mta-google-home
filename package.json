@@ -7,7 +7,6 @@
   "author": "Luis Olivar <lao294@nyu.edu>",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "nodemon": "^1.18.10"
   },
