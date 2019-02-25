@@ -1,10 +1,13 @@
 Standup Summary Report 
 
+Schedule: Monday @ 5pm 2nd floor Kimmel, Tuesday,Thursday after Class, Sunday at 9:00pm
+
 Scrum Master:
 Product Owner:
 Location:
 Time:
 
+Notes:
 
 Daniel: IRL, Remote, MIA
 Work Since Last StandUp:
