@@ -8,19 +8,19 @@
   
 ## Team Norms 
 
-#Pull Request Procedure
+# Pull Request Procedure
 Make a pull Request and notify Product Owner
 PRs should have Tracking Number, issue descriptions and modifications
 Update Readme if applicable <3
 
-#Commit Message Formatting
+# Commit Message Formatting
 Commit -m "Adding important things"
 
-#Bugs
+# Bugs
 Highlight Issue Number in backlog
 Create issue + # sign
 
-#PLEDGE
+# PLEDGE
 WE AIM TO BE SUPER NICE to each other, never lie ever.
 Be honest about the workload, we smart but not THAT smart
 A.G.I.L.E.
