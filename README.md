@@ -18,7 +18,7 @@ In your local repository, run `yarn init` and `yarn install` to add all of the n
 
 ### Testing
 
-In the src directory, run `node app.js` to ensure that you have setup your environment correctly.
+Run `yarn start` to ensure that you have setup your environment correctly.
 
 ### Running
 
