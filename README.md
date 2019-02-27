@@ -4,7 +4,7 @@ A Google Home action that allows for real-time information about current MTA ser
 
 ## About
 
-(A short description about how the project came to be).
+New York City's subways are often running on irregular schedules and routes. Many people find themselves running late because they had to wait 20 minutes for the next train or because the express trains were running on the local tracks. This application will allow users to ask their Google Home device questions about the subway system and receive information from the MTA's real time data feed.
 
 ## Instructions for Use
 
