@@ -1,8 +1,16 @@
 # Contributing to MTA for Google Home
 
 ## Team Norms and Values
+Norms
+Be nice, communicative, honest, hardworking, and nice
 
-(Include the definition of "done")
+Values
+Be nice, communicative, honest, hardworking, and nice
+
+
+MVP
+User: Okay Google, whens the next train to manhattan?
+Omniscient Google Device: The next train to manhattan is coming in x Minutes
 
 ## Team Git Workflow
   
