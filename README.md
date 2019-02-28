@@ -27,5 +27,5 @@ For information about how to contribute to this project: [CONTRIBUTING.md](https
 - Luis Olivar - [Luistics](https://github.com/Luistics)
 - Vivian Fang - [vivfang](https://github.com/vivfang)
 - Daniel Yoo - [DanielY-Yoo](https://github.com/DanielY-Yoo)
-- Eisen Huang =[EisenHuang](https://github.com/EisenHuang)
+- Eisen Huang - [EisenHuang](https://github.com/EisenHuang)
 -
