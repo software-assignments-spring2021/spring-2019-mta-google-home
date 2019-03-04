@@ -1,5 +1,5 @@
 class UserInput {
-    constructor(station, trainType, direction, numTrains, time = null) {
+    constructor(station, trainType, direction, numTrains = 1, time = null) {
         this.station = station;
         this.trainType = trainType;
         this.direction = direction;
@@ -10,7 +10,6 @@ class UserInput {
         }
 
         this.time = time;
-
     }
 }
 
