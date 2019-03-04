@@ -26,6 +26,7 @@
   },
   "scripts": {
     "start": "nodemon ./src/app.js --exec babel-node -e js",
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "test": "mocha tests/mta-test.js --require babel-core/register"
   }
 }
