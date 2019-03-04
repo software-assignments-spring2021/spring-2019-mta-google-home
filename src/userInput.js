@@ -1,12 +1,16 @@
 class UserInput {
-    constructor(station, trainType, direction, numTrains) {
+    constructor(station, trainType, direction, numTrains, time = null) {
         this.station = station;
         this.trainType = trainType;
         this.direction = direction;
         this.numTrains = numTrains;
 
-        const currentTime = 1000; // Should set current Time 
-        this.time = currentTime;
+        if (!time) {
+            time = 1000; // Should set to current time
+        }
+
+        this.time = time;
+
     }
 }
 
