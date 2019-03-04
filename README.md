@@ -14,11 +14,11 @@ If yarn and node.js are not yet installed, you will need to install them. We rec
 
 Once yarn and node are installed, clone this repository using `git clone git@github.com:nyu-software-engineering/mta-google-home.git`
 
-In your local repository, run `yarn init` and `yarn install` to add all of the necessary dependencies.
+In your local repository, run `yarn install` to add all of the necessary dependencies.
 
 ### Testing
 
-In the src directory, run `node app.js` to ensure that you have setup your environment correctly.
+Run `yarn start` to ensure that you have setup your environment correctly.
 
 ### Running
 
