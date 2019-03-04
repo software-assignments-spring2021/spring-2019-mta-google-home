@@ -1,5 +1,5 @@
-const express = require("express");
-const { urlencoded, json } = require("body-parser");
+import express from "express";
+import { urlencoded, json } from "body-parser";
 let app = express();
 
 const PORT = process.env.PORT || 5000;
