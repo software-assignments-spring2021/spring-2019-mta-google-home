@@ -1,9 +1,9 @@
 import { equal } from 'assert';
+import UserInput from '../src/UserInput.js';
 
-describe('Tests', function() {
-  describe('#test1()', function() {
-    it('should test some function', function(){
-      equal(0, 0);
-    });
+describe('UserInput tests', function() {
+  it('UserInput has correct station', function(){
+    var testInput = new UserInput("Astor Place", "6", "Uptown", 1);
+    equal(testInput.station, "Astor Place");
   });
 });

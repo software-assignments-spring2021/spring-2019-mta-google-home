@@ -14,6 +14,4 @@ class UserInput {
     }
 }
 
-module.exports = {
-    UserInput
-};
+export default UserInput;

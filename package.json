@@ -10,7 +10,8 @@
     "babel-eslint": "^10.0.1",
     "express": "^4.16.4",
     "nodemon": "^1.18.10",
-    "nyc": "^13.3.0"
+    "nyc": "^13.3.0",
+    "sinon": "^7.2.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
