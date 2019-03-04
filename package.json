@@ -9,7 +9,8 @@
   "dependencies": {
     "babel-eslint": "^10.0.1",
     "express": "^4.16.4",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "nyc": "^13.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -27,6 +28,7 @@
   "scripts": {
     "start": "nodemon ./src/app.js --exec babel-node -e js",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "test": "mocha tests/mta-test.js --require babel-core/register"
+    "test": "mocha tests/mta-test.js --require babel-core/register",
+    "test-with-coverage": "nyc --reporter=text mocha tests/mta-test.js --require babel-core/register"
   }
 }
