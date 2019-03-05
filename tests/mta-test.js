@@ -27,6 +27,10 @@ describe("UserInput tests", function() {
     const testInput = new UserInput("Union Square", "X", "Uptown", 1);
     equal(testInput.checkTrainType(), false);
   });
+  it("UserInput checkNumTrain checks for invalid lines", function() {
+    const testInput = new UserInput("Union Square", "X", "Uptown", 1);
+    equal(testInput.checkNumTrain(), 1);
+  });
 });
 
 describe("Response tests", function() {
