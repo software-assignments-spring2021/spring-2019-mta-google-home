@@ -16,9 +16,11 @@ Once yarn and node are installed, clone this repository using `git clone git@git
 
 In your local repository, run `yarn install` to add all of the necessary dependencies.
 
+Run `yarn start` to ensure that you have setup your environment correctly.
+
 ### Testing
 
-Run `yarn start` to ensure that you have setup your environment correctly.
+To run unit tests, run `yarn test`. To run unit tests with coverage, run `yarn test-with-coverage`.
 
 ### Running
 
