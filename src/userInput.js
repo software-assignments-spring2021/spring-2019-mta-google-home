@@ -19,6 +19,35 @@ class UserInput {
 
     this.time = time;
   }
+  checkTrainType() {
+    const trainType = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "M",
+      "J",
+      "Z",
+      "L",
+      "S",
+      "N",
+      "Q",
+      "R",
+      "W"
+    ];
+
+    return trainType.indexOf(this.trainType.toUpperCase()) > -1;
+  }
 }
 
 export default UserInput;
