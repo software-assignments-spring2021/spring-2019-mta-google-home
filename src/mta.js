@@ -8,7 +8,7 @@ const request = require('request');
  * @returns {array} timeArray -- returns array with an array of JSON objects. JSON objects contain time in UNIX timestamp
  * @author Daniel Yoo (github: DanielY-Yoo)
  */
-function getTrainInfo(trainType) {
+function getArrivalTimeList(trainType) {
 
     const requestSettings = {
         method: 'GET',
@@ -64,6 +64,6 @@ function getTrainInfo(trainType) {
     });
 }
 
-getTrainInfo("6").then((timeArray) => {
+getArrivalTimeList("6").then((timeArray) => {
     console.log(timeArray);
 });
