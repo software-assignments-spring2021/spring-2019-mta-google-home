@@ -27,21 +27,43 @@ describe("UserInput tests", function() {
     const testInput = new UserInput("Union Square", "X", "Uptown", 1);
     equal(testInput.checkTrainType(), false);
   });
-  it("Should return correct num train1",function(){
+  it("Should return correct num train1", function() {
     const testInput = new UserInput("Union Square", "X", "Uptown", 1);
-    equal(testInput.numTrains,1);
+    equal(testInput.numTrains, 1);
   });
-  it("Should return correct num train1", function(){
+  it("Should return correct num train1", function() {
     const testInput = new UserInput("Prince Street", "W", "Uptown", 2);
-    equal(testInput.numTrains,2);
+    equal(testInput.numTrains, 2);
   });
-  it("Should return correct num train1", function(){
+  it("Should return correct num train1", function() {
     const testInput = new UserInput("Canal Street", "Q", "Uptown", 3);
-    equal(testInput.numTrains,3);
+    equal(testInput.numTrains, 3);
   });
-  it("Should return correct num train1", function(){
+  it("Should return correct num train1", function() {
     const testInput = new UserInput("Times Square:", "3", "Uptown", 4);
-    equal(testInput.numTrains,4);
+    equal(testInput.numTrains, 4);
+  });
+
+  it("should contain a correct direction", () => {
+    const validDirections = new Set([
+      "Uptown",
+      "Downtown",
+      "Eastbound",
+      "Westbound"
+    ]);
+    const testInput = new UserInput("Times Square", "3", "Uptown", 4);
+    equal(true, validDirections.has(testInput.direction));
+  });
+
+  it("should reject invalid directions", () => {
+    const validDirections = new Set([
+      "Uptown",
+      "Downtown",
+      "Eastbound",
+      "Westbound"
+    ]);
+    const testInput = new UserInput("Times Square", "3", "Around Town", 4);
+    equal(false, validDirections.has(testInput.direction));
   });
 });
 
