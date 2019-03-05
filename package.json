@@ -9,7 +9,8 @@
   "dependencies": {
     "babel-eslint": "^10.0.1",
     "express": "^4.16.4",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "sinon": "^7.2.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -19,13 +20,17 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3"
   },
   "scripts": {
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "start": "nodemon ./src/app.js --exec babel-node -e js",
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "test": "mocha tests/mta-test.js --require babel-core/register",
+    "test-with-coverage": "nyc --reporter=text mocha tests/mta-test.js --require babel-core/register"
   }
 }
