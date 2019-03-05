@@ -27,36 +27,21 @@ describe("UserInput tests", function() {
     const testInput = new UserInput("Union Square", "X", "Uptown", 1);
     equal(testInput.checkTrainType(), false);
   });
-});
-
-describe("numTrains tests", function() {
-  it("numTrains has correct station", function() {
-    var testInput = new UserInput("Astor Place", "6", "Uptown", 1);
-    equal(testInput.station, "Astor Place");
+  it("Should return correct num train1",function(){
+    const testInput = new UserInput("Union Square", "X", "Uptown", 1);
+    equal(testInput.numTrains,1);
   });
-
-  it("numTrains has Arrival Time ", function() {
-    var testInput = new UserInput("Union Square", "6", "Uptown", 1);
-    equal(testInput.time, 1000);
+  it("Should return correct num train1", function(){
+    const testInput = new UserInput("Prince Street", "W", "Uptown", 2);
+    equal(testInput.numTrains,2);
   });
-
-  it("numTrains sets correct line", function() {
-    const testInput = new UserInput("Prince Street", "N", "Uptown", 1);
-    equal(testInput.checkNumTrain(), true);
+  it("Should return correct num train1", function(){
+    const testInput = new UserInput("Canal Street", "Q", "Uptown", 3);
+    equal(testInput.numTrains,3);
   });
-
-  it("numTrains line checks for cases", function() {
-    const testInput = new UserInput("Prince Street", "n", "Uptown", 1);
-    equal(testInput.checkNumTrain(), true);
-  });
-
-  it("numTrains checkTrainType checks for invalid lines", function() {
-    const testInput = new UserInput("Prince Street", "X", "Uptown", 1);
-    equal(testInput.checkNumTrain(), false);
-  });
-  it("numTrains checkNumTrain checks for invalid lines", function() {
-    const testInput = new UserInput("Prince Street", "X", "Uptown", 1);
-    equal(testInput.checkNumTrain(), 1);
+  it("Should return correct num train1", function(){
+    const testInput = new UserInput("Times Square:", "3", "Uptown", 4);
+    equal(testInput.numTrains,4);
   });
 });
 
