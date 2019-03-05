@@ -27,8 +27,35 @@ describe("UserInput tests", function() {
     const testInput = new UserInput("Union Square", "X", "Uptown", 1);
     equal(testInput.checkTrainType(), false);
   });
-  it("UserInput checkNumTrain checks for invalid lines", function() {
-    const testInput = new UserInput("Union Square", "X", "Uptown", 1);
+});
+
+describe("numTrains tests", function() {
+  it("numTrains has correct station", function() {
+    var testInput = new UserInput("Astor Place", "6", "Uptown", 1);
+    equal(testInput.station, "Astor Place");
+  });
+
+  it("numTrains has Arrival Time ", function() {
+    var testInput = new UserInput("Union Square", "6", "Uptown", 1);
+    equal(testInput.time, 1000);
+  });
+
+  it("numTrains sets correct line", function() {
+    const testInput = new UserInput("Prince Street", "N", "Uptown", 1);
+    equal(testInput.checkNumTrain(), true);
+  });
+
+  it("numTrains line checks for cases", function() {
+    const testInput = new UserInput("Prince Street", "n", "Uptown", 1);
+    equal(testInput.checkNumTrain(), true);
+  });
+
+  it("numTrains checkTrainType checks for invalid lines", function() {
+    const testInput = new UserInput("Prince Street", "X", "Uptown", 1);
+    equal(testInput.checkNumTrain(), false);
+  });
+  it("numTrains checkNumTrain checks for invalid lines", function() {
+    const testInput = new UserInput("Prince Street", "X", "Uptown", 1);
     equal(testInput.checkNumTrain(), 1);
   });
 });
