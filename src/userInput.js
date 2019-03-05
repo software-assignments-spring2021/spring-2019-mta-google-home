@@ -19,6 +19,7 @@ class UserInput {
 
     this.time = time;
   }
+
   checkTrainType() {
     const trainType = [
       "1",

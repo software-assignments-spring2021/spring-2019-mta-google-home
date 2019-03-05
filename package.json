@@ -9,7 +9,9 @@
   "dependencies": {
     "babel-eslint": "^10.0.1",
     "express": "^4.16.4",
+    "gtfs-realtime-bindings": "^0.0.4",
     "nodemon": "^1.18.10",
+    "request": "^2.88.0",
     "sinon": "^7.2.7"
   },
   "devDependencies": {
@@ -28,9 +30,10 @@
   },
   "scripts": {
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
-    "start": "nodemon ./src/app.js --exec babel-node -e js",
+    "start": "nodemon ./src/request.js --exec babel-node -e js",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "test": "mocha tests/mta-test.js --require babel-core/register",
-    "test-with-coverage": "nyc --reporter=text mocha tests/mta-test.js --require babel-core/register"
+    "test-with-coverage": "nyc --reporter=text mocha tests/mta-test.js --require babel-core/register",
+    "run-mta": "node src/mta.js"
   }
 }
