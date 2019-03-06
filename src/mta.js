@@ -1,4 +1,4 @@
-const generalTransitFeed = require('gtfs-realtime-bindings');
+const generalTransitFeed = require('gtfs-realtime-bindings-transit');
 const request = require('request');
 
 /**
@@ -16,6 +16,9 @@ function getArrivalTimeList(trainType) {
         encoding: null
     };
 
+    // console.log(generalTransitFeed.transit_realtime.FeedMessage);
+    // console.log(Object.keys(generalTransitFeed.transit_realtime.FeedMessage));
+
     return new Promise((resolve, reject) => {
         request(requestSettings, function (error, response, body) {
             if (!error && response.statusCode == 200) {
@@ -25,15 +28,16 @@ function getArrivalTimeList(trainType) {
                 // console.log(feed);
                 const result = [];
 
-                const feed = generalTransitFeed.FeedMessage.decode(body);
-                // console.log(feed.entity[0].trip_update.trip.trip_id);
+                const feed = generalTransitFeed.transit_realtime.FeedMessage.decode(body);
+
                 feed.entity.forEach(function (entity) {
-                    if (entity.trip_update) {
-                        const routeID = entity.trip_update.trip.route_id;
+                    // console.log(entity);
+                    if (entity.tripUpdate) {
+                        const routeID = entity.tripUpdate.trip.routeId;
                         // console.log(typeof (routeID));
                         // console.log(trainType);
                         if (routeID === trainType) {
-                            result.push(entity.trip_update.stop_time_update);
+                            result.push(entity.tripUpdate.stopTimeUpdate);
                         }
                     }
                 });

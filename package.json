@@ -9,7 +9,7 @@
   "dependencies": {
     "babel-eslint": "^10.0.1",
     "express": "^4.16.4",
-    "gtfs-realtime-bindings": "^0.0.4",
+    "gtfs-realtime-bindings-transit": "^1.2.0",
     "nodemon": "^1.18.10",
     "request": "^2.88.0",
     "sinon": "^7.2.7"
