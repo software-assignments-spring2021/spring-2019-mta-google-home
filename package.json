@@ -8,6 +8,10 @@
   "license": "MIT",
   "dependencies": {
     "babel-eslint": "^10.0.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
     "gtfs-realtime-bindings-transit": "^1.2.0",
     "nodemon": "^1.18.10",
