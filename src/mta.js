@@ -22,6 +22,7 @@ const dataFeeds = {
   'A': `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
   'C': `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
   'E': `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
+  'H': `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
   'S': `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
   'N': `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=16`,
   'Q': `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=16`,
