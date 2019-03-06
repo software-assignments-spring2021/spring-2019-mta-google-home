@@ -34,7 +34,7 @@
   },
   "scripts": {
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
-    "start": "nodemon ./src/request.js --exec babel-node -e js",
+    "start": "nodemon ./src/app.js --exec babel-node -e js",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "test": "mocha tests/mta-test.js --require babel-core/register",
     "test-with-coverage": "nyc --reporter=text mocha tests/mta-test.js --require babel-core/register",
