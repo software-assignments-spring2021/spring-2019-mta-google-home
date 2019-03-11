@@ -39,7 +39,7 @@ const dataFeeds = {
   "7": `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=51`
 };
 
-function getArrivalTimeList(trainType) {
+function getArrivalTimeList(trainType, stationId) {
   const requestSettings = {
     method: "GET",
     url: dataFeeds[trainType],
@@ -54,16 +54,21 @@ function getArrivalTimeList(trainType) {
         const feed = generalTransitFeed.transit_realtime.FeedMessage.decode(
           body
         );
-
-        feed.entity.forEach(function(entity) {
-          if (entity.tripUpdate) {
-            const routeID = entity.tripUpdate.trip.routeId;
-            if (routeID === trainType) {
-              result.push(entity.tripUpdate.stopTimeUpdate);
+        feed.entity.forEach(function(entity, index) {
+            if (entity.tripUpdate) {
+                const routeID = entity.tripUpdate.trip.routeId;
+                if (routeID == trainType) {
+                    const next = feed.entity[index+1];
+                    if(next.vehicle){
+                        //console.log("NEXT: ", next.vehicle);
+                        if(next.vehicle.stopId == stationId){
+                            //console.log("NEXT: ", next.vehicle);
+                            result.push(entity.tripUpdate.stopTimeUpdate);
+                        }
+                    }
+                }
             }
-          }
         });
-
         const resultKeys = Object.keys(result);
         const resultValues = Object.values(result);
         const timeArray = [];
@@ -87,12 +92,7 @@ function getArrivalTimeList(trainType) {
   });
 }
 
-getArrivalTimeList("6").then(timeArray => {
+getArrivalTimeList("6", '602S').then(timeArray => {
   console.log(timeArray[0]);
 });
-getArrivalTimeList("C").then(timeArray => {
-  console.log(timeArray[0]);
-});
-getArrivalTimeList("J").then(timeArray => {
-  console.log(timeArray[0]);
-});
+
