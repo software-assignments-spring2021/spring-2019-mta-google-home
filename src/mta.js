@@ -60,9 +60,7 @@ function getArrivalTimeList(trainType, stationId) {
                 if (routeID == trainType) {
                     const next = feed.entity[index+1];
                     if(next.vehicle){
-                        //console.log("NEXT: ", next.vehicle);
                         if(next.vehicle.stopId == stationId){
-                            //console.log("NEXT: ", next.vehicle);
                             result.push(entity.tripUpdate.stopTimeUpdate);
                         }
                     }
@@ -92,7 +90,17 @@ function getArrivalTimeList(trainType, stationId) {
   });
 }
 
+console.log("TRAIN 6, STOP 602S: ");
 getArrivalTimeList("6", '602S').then(timeArray => {
-  console.log(timeArray[0]);
+  timeArray.forEach(function(time) {
+    console.log(time);
+  })
+});
+
+console.log("TRAIN 6, STOP 612N: ");
+getArrivalTimeList("6", '612N').then(timeArray => {
+    timeArray.forEach(function(time) {
+        console.log(time);
+    })
 });
 
