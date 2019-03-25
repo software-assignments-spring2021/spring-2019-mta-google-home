@@ -16,7 +16,7 @@ class UserInput {
     if (!time) {
       time = 1000; // Should set to current time
     }
-
+    //test
     this.time = time;
   }
 
