@@ -19,3 +19,4 @@ before_install:
 
 install:
   - yarn install
+  - yarn test-with-coverage
