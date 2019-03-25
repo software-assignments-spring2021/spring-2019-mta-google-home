@@ -4,15 +4,18 @@ node_js:
 branches:
   only:
     - master
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
 notifications:
   slack: nyu-agile-software:4Ll9V7RPK8fkqf2dGDvWiEGt
 
 before_install:
-  - brew install yarn
+  - yarn build
 
 install:
   - yarn install
   - yarn start
-
-script:
-  - yarn test-with-coverage
