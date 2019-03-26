@@ -39,7 +39,15 @@ const dataFeeds = {
   "7": `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=51`
 };
 
-function getArrivalTimeList(trainType) {
+/**
+ * Gets the next arrival time list of a certain line for the next specified
+ * number of trains. Gives back indeterminate length of array if amount is not
+ * specified.
+ * @param {string} trainType
+ * @param {number} amount
+ * @returns {array} of objects with the next {amount}, {trainType} trains
+ */
+function getArrivalTimeList(trainType, amount) {
   const requestSettings = {
     method: "GET",
     url: dataFeeds[trainType],
@@ -73,8 +81,12 @@ function getArrivalTimeList(trainType) {
           const resultValueValues = Object.values(resultValues[i]);
 
           for (let j = 0; j < resultValueKeys.length; j += 1) {
+            if (amount < 1) {
+              break;
+            }
             if (resultValueValues[j].arrival) {
               timeArray.push(resultValueValues[j].arrival.time);
+              amount--;
             }
           }
         }
@@ -87,8 +99,9 @@ function getArrivalTimeList(trainType) {
   });
 }
 
-getArrivalTimeList("6").then(timeArray => {
-  console.log(timeArray[0]);
+getArrivalTimeList("6", 3).then(timeArray => {
+  // TODO: Let the user know what kind of trains are available
+  console.log(timeArray);
 });
 getArrivalTimeList("C").then(timeArray => {
   console.log(timeArray[0]);
