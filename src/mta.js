@@ -39,6 +39,10 @@ const dataFeeds = {
   "7": `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=51`
 };
 
+var trainType = process.argv[2];
+var num = process.argv[3];
+var station = process.argv[4];
+
 /**
  * Gets the next arrival time list of a certain line for the next specified
  * number of trains. Gives back indeterminate length of array if amount is not
@@ -68,6 +72,7 @@ function getArrivalTimeList(trainType, amount, stationId) {
                 if (routeID == trainType) {
                     const next = feed.entity[index+1];
                     if(next.vehicle){
+                      console.log(next.vehicle.stopId);
                         if(next.vehicle.stopId == stationId){
                             result.push(entity.tripUpdate.stopTimeUpdate);
                         }
@@ -102,8 +107,9 @@ function getArrivalTimeList(trainType, amount, stationId) {
   });
 }
 
-console.log("TRAIN 6, NEXT 3, STOP 602S: ");
-getArrivalTimeList("6", 3, '602S').then(timeArray => {
+//STOP 602S
+console.log(`TRAIN ${trainType}, NEXT ${num} TRAINS, STOP ${station}: `);
+getArrivalTimeList(trainType, num, station).then(timeArray => {
   // TODO: Let the user know what kind of trains are available
   console.log(timeArray);
 });
