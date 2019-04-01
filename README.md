@@ -1,5 +1,5 @@
 # MTA For Google Home
-
+[![Build Status](https://travis-ci.com/nyu-software-engineering/mta-google-home.svg?branch=master)](https://travis-ci.com/nyu-software-engineering/mta-google-home)
 A Google Home action that allows for real-time information about current MTA service.
 
 ## About
@@ -31,6 +31,7 @@ To view this project's requirements: [REQUIREMENTS.md](https://github.com/nyu-so
 ## Contributing
 
 For information about how to contribute to this project: [CONTRIBUTING.md](https://github.com/nyu-software-engineering/mta-google-home/blob/master/public/CONTRIBUTING.md)
+
 
 ## Authors
 

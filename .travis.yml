@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "10.15.3"
+branches:
+  only:
+    - master
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+notifications:
+  slack: nyu-agile-software:4Ll9V7RPK8fkqf2dGDvWiEGt
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
+install:
+  - yarn
+  - yarn build
