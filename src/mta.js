@@ -47,7 +47,7 @@ const dataFeeds = {
  * @param {number} amount
  * @returns {array} of objects with the next {amount}, {trainType} trains
  */
-function getArrivalTimeList(trainType, amount) {
+function getArrivalTimeList(trainType, amount, stationId) {
   const requestSettings = {
     method: "GET",
     url: dataFeeds[trainType],
@@ -62,16 +62,19 @@ function getArrivalTimeList(trainType, amount) {
         const feed = generalTransitFeed.transit_realtime.FeedMessage.decode(
           body
         );
-
-        feed.entity.forEach(function(entity) {
-          if (entity.tripUpdate) {
-            const routeID = entity.tripUpdate.trip.routeId;
-            if (routeID === trainType) {
-              result.push(entity.tripUpdate.stopTimeUpdate);
+        feed.entity.forEach(function(entity, index) {
+            if (entity.tripUpdate) {
+                const routeID = entity.tripUpdate.trip.routeId;
+                if (routeID == trainType) {
+                    const next = feed.entity[index+1];
+                    if(next.vehicle){
+                        if(next.vehicle.stopId == stationId){
+                            result.push(entity.tripUpdate.stopTimeUpdate);
+                        }
+                    }
+                }
             }
-          }
         });
-
         const resultKeys = Object.keys(result);
         const resultValues = Object.values(result);
         const timeArray = [];
@@ -99,13 +102,8 @@ function getArrivalTimeList(trainType, amount) {
   });
 }
 
-getArrivalTimeList("6", 3).then(timeArray => {
+console.log("TRAIN 6, NEXT 3, STOP 602S: ");
+getArrivalTimeList("6", 3, '602S').then(timeArray => {
   // TODO: Let the user know what kind of trains are available
   console.log(timeArray);
-});
-getArrivalTimeList("C").then(timeArray => {
-  console.log(timeArray[0]);
-});
-getArrivalTimeList("J").then(timeArray => {
-  console.log(timeArray[0]);
 });
