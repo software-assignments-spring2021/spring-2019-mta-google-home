@@ -70,12 +70,13 @@ function getArrivalTimeList(trainType, amount, stationId) {
             if (entity.tripUpdate) {
                 const routeID = entity.tripUpdate.trip.routeId;
                 if (routeID == trainType) {
-                    const next = feed.entity[index+1];
-                    if(next.vehicle){
-                      console.log(next.vehicle.stopId);
-                        if(next.vehicle.stopId == stationId){
-                            result.push(entity.tripUpdate.stopTimeUpdate);
+                    if(entity.tripUpdate.stopTimeUpdate){
+                      entity.tripUpdate.stopTimeUpdate.forEach(function(update, index) {
+                        console.log(update.stopId);
+                        if(update.stopId == stationId){
+                          result.push(update);
                         }
+                      });
                     }
                 }
             }
@@ -92,16 +93,26 @@ function getArrivalTimeList(trainType, amount, stationId) {
             if (amount < 1) {
               break;
             }
-            if (resultValueValues[j].arrival) {
-              timeArray.push(resultValueValues[j].arrival.time);
+            if (resultValueValues[j].time) {
+              var date = new Date(resultValueValues[j].time*1000);
+              // Hours part from the timestamp
+              var hours = date.getHours();
+              // Minutes part from the timestamp
+              var minutes = "0" + date.getMinutes();
+              // Seconds part from the timestamp
+              var seconds = "0" + date.getSeconds();
+
+              // Will display time in 10:30:23 format
+              var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+              timeArray.push(formattedTime);
               amount--;
             }
           }
         }
-
         resolve(timeArray);
       } else {
         reject(new Error(error));
+        console.log("ERROR");
       }
     });
   });
