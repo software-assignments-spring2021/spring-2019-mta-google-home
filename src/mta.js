@@ -237,7 +237,7 @@ function getStationObject(trainType, stationName) {
   }
 }
 
-function getStationID(stationObject) {
+function getStationID(stationObject, direction) {
   return new Promise((resolve, reject) => {
     let finalStationID = stationObject["GTFS Stop ID"];
 
@@ -271,15 +271,11 @@ console.log(
 parseThenGetTimeList(trainType, stationName, direction, num);
 
 async function parseThenGetTimeList(trainType, stationName, direction, num) {
-  const stationObject = await getStationObject(
-    trainType,
-    stationName,
-    direction
-  );
+  const stationObject = await getStationObject(trainType, stationName);
 
   console.log(stationObject);
 
-  const stationID = await getStationID(stationObject);
+  const stationID = await getStationID(stationObject, direction);
 
   const timeList = await getArrivalTimeList(trainType, num, stationID);
 
