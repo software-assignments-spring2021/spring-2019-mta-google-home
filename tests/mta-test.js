@@ -104,3 +104,25 @@ describe("Response tests", function() {
     equal(false, validDirections.has(testInput.direction));
   });
 });
+
+// describe("Get Station Tests", function() {
+//   it("Should give back right station", () => {
+//     const correctObject = {
+//       "Station ID": 163,
+//       "Complex ID": 611,
+//       "GTFS Stop ID": "A27",
+//       Division: "IND",
+//       Line: "8th Ave - Fulton St",
+//       "Stop Name": "42 St - Port Authority Bus Terminal",
+//       Borough: "M",
+//       "Daytime Routes": "A C E",
+//       Structure: "Subway",
+//       "GTFS Latitude": 40.757308,
+//       "GTFS Longitude": -73.989735
+//     };
+
+//     const comparedObject = getStationObject("A", "42nd Street");
+
+//     equal(correctObject, comparedObject);
+//   });
+// });
