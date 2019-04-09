@@ -1,0 +1,9 @@
+{
+  "Uptown": "N",
+  "Downtown": "S",
+  "Queens": "N",
+  "Brooklyn": "S",
+  "Bronx": "N",
+  "North": "N",
+  "South": "S"
+}
