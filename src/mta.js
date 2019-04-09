@@ -66,6 +66,10 @@ function getArrivalTimeList(trainType, amount, stationId) {
         const feed = generalTransitFeed.transit_realtime.FeedMessage.decode(
           body
         );
+
+        console.log(feed);
+
+
         feed.entity.forEach(function(entity, index) {
             if (entity.tripUpdate) {
                 const routeID = entity.tripUpdate.trip.routeId;
@@ -119,8 +123,9 @@ function getArrivalTimeList(trainType, amount, stationId) {
 }
 
 //STOP 602S
-console.log(`TRAIN ${trainType}, NEXT ${num} TRAINS, STOP ${station}: `);
+
 getArrivalTimeList(trainType, num, station).then(timeArray => {
+  console.log(`TRAIN ${trainType}, NEXT ${num} TRAINS, STOP ${station}: `);
   // TODO: Let the user know what kind of trains are available
   console.log(timeArray);
 });
