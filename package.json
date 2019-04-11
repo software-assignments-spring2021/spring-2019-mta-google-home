@@ -7,6 +7,7 @@
   "author": "Luis Olivar <lao294@nyu.edu>",
   "license": "MIT",
   "dependencies": {
+    "actions-on-google": "^2.6.0",
     "babel-eslint": "^10.0.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
@@ -14,6 +15,7 @@
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
     "gtfs-realtime-bindings-transit": "^1.2.0",
+    "ngrok": "^3.1.1",
     "nodemon": "^1.18.10",
     "request": "^2.88.0",
     "sinon": "^7.2.7"
@@ -35,6 +37,7 @@
   "scripts": {
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "start": "nodemon ./src/app.js --exec babel-node -e js",
+    "serve": "ngrok http 3000",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "test": "mocha tests/mta-test.js --require babel-core/register",
     "test-with-coverage": "nyc --reporter=text mocha tests/mta-test.js --require babel-core/register",
