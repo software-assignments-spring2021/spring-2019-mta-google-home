@@ -4,6 +4,7 @@
 
 // Import the appropriate service and chosen wrappers
 import { dialogflow, Image } from "actions-on-google";
+import * as MTAFunc from "./mta";
 import express from "express";
 import bodyParser from "body-parser";
 
@@ -37,11 +38,31 @@ app.fallback(conv => {
   conv.ask("Welcome! Say a number.");
 });
 
+app.intent("LookingForTrainTime", (conv, params) => {
+  const lineType = params.LineType;
+  const directionType = params.DirectionType;
+
+  conv.close(
+    `The next ${lineType} going towards ${directionType} is at 5:00PM`
+  );
+});
+
 expressApp.post("/fulfillment", app);
 
 expressApp.get("/", (req, res) => {
   res.send("Hello!");
 });
+
+const trainType = "A";
+const num = 3;
+const stationName = "42nd street";
+const direction = "Uptown";
+
+console.log(
+  `TRAIN ${trainType}, NEXT ${num} TRAINS, STOP ${stationName}, DIRECTION: ${direction}: `
+);
+
+MTAFunc.parseThenGetTimeList(trainType, stationName, direction, num);
 
 // To start, run ngrok http 3000 after yarn start
 console.log("Listening on port 3000");
