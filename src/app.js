@@ -38,12 +38,23 @@ app.fallback(conv => {
   conv.ask("Welcome! Say a number.");
 });
 
-app.intent("LookingForTrainTime", (conv, params) => {
-  const lineType = params.LineType;
+// todo test train time intent
+app.intent("LookingForTrainTime", async (conv, params) => {
+  const lineType = params.LineType.charAt(0);
   const directionType = params.DirectionType;
+  const num = 3;
+  const stationName = "42nd street";
+  const timeList = await MTAFunc.parseThenGetTimeList(
+    lineType,
+    stationName,
+    directionType,
+    num
+  );
+
+  console.log(timeList);
 
   conv.close(
-    `The next ${lineType} going towards ${directionType} is at 5:00PM`
+    `The next ${lineType} going towards ${directionType} is at ${timeList[0]}`
   );
 });
 
@@ -53,16 +64,11 @@ expressApp.get("/", (req, res) => {
   res.send("Hello!");
 });
 
-const trainType = "A";
-const num = 3;
-const stationName = "42nd street";
-const direction = "Uptown";
+// console.log(
+//   `TRAIN ${trainType}, NEXT ${num} TRAINS, STOP ${stationName}, DIRECTION: ${direction}: `
+// );
 
-console.log(
-  `TRAIN ${trainType}, NEXT ${num} TRAINS, STOP ${stationName}, DIRECTION: ${direction}: `
-);
-
-MTAFunc.parseThenGetTimeList(trainType, stationName, direction, num);
+// MTAFunc.parseThenGetTimeList(trainType, stationName, direction, num);
 
 // To start, run ngrok http 3000 after yarn start
 console.log("Listening on port 3000");

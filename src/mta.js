@@ -277,13 +277,15 @@ export async function parseThenGetTimeList(
 ) {
   const stationObject = await getStationObject(trainType, stationName);
 
-  console.log(stationObject);
+  // console.log(stationObject);
 
   const stationID = await getStationID(stationObject, direction);
 
   const timeList = await getArrivalTimeList(trainType, num, stationID);
 
-  console.log(timeList);
+  // console.log(timeList);
+
+  return timeList;
 }
 
 // getStationObject(trainType, stationName, direction).then(stationObject => {
