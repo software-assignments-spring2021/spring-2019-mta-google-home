@@ -35,7 +35,6 @@ const dataFeeds = {
   Z: `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=36`,
   "7": `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=51`
 };
-
 // var trainType = process.argv[2];
 // var num = process.argv[3];
 // var station = process.argv[4];
@@ -45,10 +44,10 @@ const dataFeeds = {
 // const stationName = "42nd street";
 // const direction = "Uptown";
 
-const trainType = "A";
-const num = 3;
-const stationName = "42nd street";
-const direction = "Uptown";
+// const trainType = "A";
+// const num = 3;
+// const stationName = "42nd street";
+// const direction = "Uptown";
 
 /**
  * Gets the next arrival time list of a certain line for the next specified
@@ -64,7 +63,7 @@ const direction = "Uptown";
  * @returns {array} of objects with the next {amount}, {trainType} trains
  */
 
-function getArrivalTimeList(trainType, amount, stationId) {
+export function getArrivalTimeList(trainType, amount, stationId) {
   const requestSettings = {
     method: "GET",
     url: dataFeeds[trainType] || "", // Defaulting url variable to empty in case line is not found
@@ -160,7 +159,7 @@ function getArrivalTimeList(trainType, amount, stationId) {
  *
  * @returns {string} stationID
  */
-function getStationObject(trainType, stationName) {
+export function getStationObject(trainType, stationName) {
   return new Promise((resolve, reject) => {
     let error = "";
     if (!trainType || !stationName) {
@@ -237,7 +236,7 @@ function getStationObject(trainType, stationName) {
   }
 }
 
-function getStationID(stationObject, direction) {
+export function getStationID(stationObject, direction) {
   return new Promise((resolve, reject) => {
     let finalStationID = stationObject["GTFS Stop ID"];
 
@@ -264,22 +263,29 @@ function getStationID(stationObject, direction) {
 }
 
 // STOP 602S
-console.log(
-  `TRAIN ${trainType}, NEXT ${num} TRAINS, STOP ${stationName}, DIRECTION: ${direction}: `
-);
+// console.log(
+//   `TRAIN ${trainType}, NEXT ${num} TRAINS, STOP ${stationName}, DIRECTION: ${direction}: `
+// );
 
-parseThenGetTimeList(trainType, stationName, direction, num);
+// parseThenGetTimeList(trainType, stationName, direction, num);
 
-async function parseThenGetTimeList(trainType, stationName, direction, num) {
+export async function parseThenGetTimeList(
+  trainType,
+  stationName,
+  direction,
+  num
+) {
   const stationObject = await getStationObject(trainType, stationName);
 
-  console.log(stationObject);
+  // console.log(stationObject);
 
   const stationID = await getStationID(stationObject, direction);
 
   const timeList = await getArrivalTimeList(trainType, num, stationID);
 
-  console.log(timeList);
+  // console.log(timeList);
+
+  return timeList;
 }
 
 // getStationObject(trainType, stationName, direction).then(stationObject => {
