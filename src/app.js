@@ -54,7 +54,7 @@ app.intent("LookingForTrainTime", async (conv, params) => {
   console.log(timeList);
 
   conv.close(
-    `The next ${lineType} going towards ${directionType} is at ${timeList[0]}`
+    `The next ${lineType} train going towards ${directionType} is at ${timeList[0]}`
   );
 });
 
