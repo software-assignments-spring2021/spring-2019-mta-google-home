@@ -38,7 +38,6 @@ app.fallback(conv => {
   conv.ask("Welcome! Say a number.");
 });
 
-// todo test train time intent
 app.intent("LookingForTrainTime", async (conv, params) => {
   const lineType = params.LineType.charAt(0);
   const directionType = params.DirectionType;
@@ -52,6 +51,11 @@ app.intent("LookingForTrainTime", async (conv, params) => {
     num * 2 + 1
   );
 
+  /*
+    For some reason, timelist returns two of the same times, leading to redundancy.
+    To work around this, num has been multiplied to allow the true list to be accessed.
+    This means that timeList[2] is actually timeList[1], timeList[4] is timeList[2] etc.
+  */
   console.log(timeList);
   console.log(num);
 
