@@ -50,7 +50,6 @@ app.intent("LookingForTrainTime", async (conv, params) => {
     directionType,
     num * 2 + 1
   );
-  
 
   /*
     For some reason, timelist returns two of the same times, leading to redundancy.
@@ -95,6 +94,6 @@ expressApp.get("/", (req, res) => {
 
 // To start, run ngrok http 3000 after yarn start
 console.log("Listening on port 3000");
-expressApp.listen(3000).on("error", function(err){
-  console.log(err+ "The app didn't start.")
-})
+expressApp.listen(3000).on("error", function(err) {
+  console.log(err + "The app didn't start.");
+});
