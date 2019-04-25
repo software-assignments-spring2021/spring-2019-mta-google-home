@@ -50,6 +50,7 @@ app.intent("LookingForTrainTime", async (conv, params) => {
     directionType,
     num
   );
+  
 
   console.log(timeList);
 
