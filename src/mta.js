@@ -121,7 +121,9 @@ export function getArrivalTimeList(trainType, amount, stationId) {
             }
 
             if (resultValueValues[j].time) {
-              const date = new Date(resultValueValues[j].time * 1000);
+              let date = new Date(resultValueValues[j].time * 1000);
+              date = formatTime(date);
+              /*
               // Hours part from the timestamp
               const hours = date.getHours();
               // Minutes part from the timestamp
@@ -132,7 +134,9 @@ export function getArrivalTimeList(trainType, amount, stationId) {
               // Will display time in 10:30:23 format
               const formattedTime =
                 hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
-              timeArray.push(formattedTime);
+                */
+
+              timeArray.push(date);
               amount--;
             }
           }
@@ -145,7 +149,28 @@ export function getArrivalTimeList(trainType, amount, stationId) {
     });
   });
 }
+function formatTime(date) {
+  var currentTime = date;
+  var hours = currentTime.getHours();
 
+  var suffix = "";
+  if (hours > 11) {
+    suffix += "PM";
+  } else {
+    suffix += "AM";
+  }
+  var minutes = currentTime.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  if (hours > 12) {
+    hours -= 12;
+  } else if (hours === 0) {
+    hours = 12;
+  }
+  var time = hours + ":" + minutes + " " + suffix;
+  return time;
+}
 /**
  * Takes three parameters, trainType, stationName, direction, then returns
  * the appropriate stationID for getArrivalTimeList function.
