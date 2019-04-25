@@ -38,25 +38,47 @@ app.fallback(conv => {
   conv.ask("Welcome! Say a number.");
 });
 
-// todo test train time intent
 app.intent("LookingForTrainTime", async (conv, params) => {
   const lineType = params.LineType.charAt(0);
   const directionType = params.DirectionType;
-  const num = 3;
-  const stationName = "42nd street";
+  let num = parseInt(params.NumTrains) || 1;
+  num = num > 3 ? 3 : num;
+  const stationName = params.StationType;
   const timeList = await MTAFunc.parseThenGetTimeList(
     lineType,
     stationName,
     directionType,
-    num
+    num * 2 + 1
   );
   
 
+  /*
+    For some reason, timelist returns two of the same times, leading to redundancy.
+    To work around this, num has been multiplied to allow the true list to be accessed.
+    This means that timeList[2] is actually timeList[1], timeList[4] is timeList[2] etc.
+  */
   console.log(timeList);
+  console.log(num);
 
-  conv.close(
-    `The next ${lineType} train going towards ${directionType} is at ${timeList[0]}`
-  );
+  if (num === 1) {
+    conv.close(
+      `The next ${lineType} train going ${directionType} at ${stationName} will arrive at ${
+        timeList[0]
+      }`
+    );
+  } else if (num === 2) {
+    conv.close(
+      `The next ${num} ${lineType} trains going ${directionType} at ${stationName} will arrive at ${
+        timeList[0]
+      }, and ${timeList[2]}`
+    );
+  } else {
+    conv.close(
+      `The next ${num} ${lineType} trains going ${directionType} at ${stationName} will arrive at ${
+        timeList[0]
+      }, ${timeList[2]}, and ${timeList[4]}`
+    );
+  }
 });
 
 expressApp.post("/fulfillment", app);
