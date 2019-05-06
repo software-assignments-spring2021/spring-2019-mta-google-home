@@ -39,7 +39,7 @@ app.fallback(conv => {
 });
 
 app.intent("LookingForTrainTime", async (conv, params) => {
-  const lineType = params.LineType.charAt(0);
+  const lineType = params.LineType.charAt(0).toUpperCase();
   const directionType = params.DirectionType;
   let num = parseInt(params.NumTrains) || 1;
   num = num > 3 ? 3 : num;

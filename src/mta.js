@@ -16,6 +16,7 @@ const dataFeeds = {
   GS: `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=1`,
   // 42nd street shuttle
   A: `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
+  a: `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
   C: `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
   E: `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
   H: `http://datamine.mta.info/mta_esi.php?key=${KEY}&feed_id=26`,
