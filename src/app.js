@@ -12,6 +12,10 @@ import bodyParser from "body-parser";
 const app = dialogflow();
 const expressApp = express().use(bodyParser.json());
 
+const accountSid = "ACf127054ff215ddedaecf74acf2608952";
+const authToken = "8e01241892348b33ef95177c136ff7c8";
+const client = require("twilio")(accountSid, authToken);
+
 // Register handlers for Dialogflow intents
 app.intent("Default Welcome Intent", conv => {
   conv.ask("Hi, how is it going?");
@@ -60,18 +64,45 @@ app.intent("LookingForTrainTime", async (conv, params) => {
   console.log(num);
 
   if (num === 1) {
+    client.messages
+      .create({
+        body: `The next ${lineType} train going ${directionType} at ${stationName} will arrive at ${
+          timeList[0]
+        }`,
+        from: "+19735471246",
+        to: "+19175834809"
+      })
+      .then(message => console.log(message.sid));
     conv.close(
       `The next ${lineType} train going ${directionType} at ${stationName} will arrive at ${
         timeList[0]
       }`
     );
   } else if (num === 2) {
+    client.messages
+      .create({
+        body: `The next ${num} ${lineType} trains going ${directionType} at ${stationName} will arrive at ${
+          timeList[0]
+        }, and ${timeList[2]}`,
+        from: "+19735471246",
+        to: "+19175834809"
+      })
+      .then(message => console.log(message.sid));
     conv.close(
       `The next ${num} ${lineType} trains going ${directionType} at ${stationName} will arrive at ${
         timeList[0]
       }, and ${timeList[2]}`
     );
   } else {
+    client.messages
+      .create({
+        body: `The next ${num} ${lineType} trains going ${directionType} at ${stationName} will arrive at ${
+          timeList[0]
+        }, ${timeList[2]}, and ${timeList[4]}`,
+        from: "+19735471246",
+        to: "+19175834809"
+      })
+      .then(message => console.log(message.sid));
     conv.close(
       `The next ${num} ${lineType} trains going ${directionType} at ${stationName} will arrive at ${
         timeList[0]
